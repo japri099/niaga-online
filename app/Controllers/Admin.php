@@ -15,4 +15,9 @@ class Admin extends BaseController
         echo 'admin';
     }
 
+    public function coba()
+    {
+        echo 'asd';
+    }
+
 }

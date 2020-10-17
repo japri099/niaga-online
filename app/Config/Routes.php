@@ -2,6 +2,7 @@
 
 // Create a new instance of our RouteCollection class.
 $routes = Services::routes();
+$session = Services::session();
 
 // Load the system's routing file first, so that the app and ENVIRONMENT
 // can override as needed.
@@ -30,7 +31,13 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Auth::index');
+$routes->get('/', $session->get('level') == null ? 'Auth::index' : ($session->get('level') == 'admin' ? 'Admin::index' : 'pengguna') );
+$routes->get('/auth', $session->get('level') == null ? 'Auth::index' : ($session->get('level') == 'admin' ? 'Admin::index' : 'pengguna') );
+$routes->get('/admin', $session->get('level') == 'admin' ? 'Admin::index' : 'Auth::block');
+$routes->get('/pengguna', $session->get('level') == 'pengguna' ? 'Pengguna::index' : 'Auth::block');
+$routes->get('/admin/(:hash)', $session->get('level') == 'admin' ? 'Admin::$1' : 'Auth::block');
+$routes->get('/pengguna/(:hash)', $session->get('level') == 'pengguna' ? 'Pengguna::$1' : 'Auth::block');
+
 
 /**
  * --------------------------------------------------------------------

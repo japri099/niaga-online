@@ -286,9 +286,23 @@ class Auth extends BaseController
 
 	public function block()
 	{
-		$data = [
-			'title' => 'Akses Ditolek'
-		];
+		$level = session()->get('level');
+		$data['title'] = 'Akses Ditolak';
+		if($level == null)
+		{
+			$data['link'] = '/auth';
+		}
+		else
+		{
+			if($level == 'admin')
+			{
+				$data['link'] = '/admin';
+			}
+			else
+			{
+				$data['link'] = '/pengguna';
+			}
+		}
 
 		return view('auth/block', $data);
 	}
