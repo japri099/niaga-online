@@ -19,7 +19,7 @@ class Auth extends BaseController
 	public function index()
 	{		
 		$data = [
-			'title' => 'Login | Niaga Online',
+			'title' => 'Login | Niaga 11',
 			'validation' =>  \Config\Services::validation()
 		];
 
@@ -29,7 +29,7 @@ class Auth extends BaseController
 	public function register()
 	{
 		$data = [
-			'title' => 'Register | Niaga Online',
+			'title' => 'Register | Niaga 11',
 			'validation' =>  \Config\Services::validation()
 		];
 
@@ -316,9 +316,9 @@ class Auth extends BaseController
 	private function sendEmail($token, $email)
 	{
 		$pesan = 'Klik <a href="' . base_url('/auth/aktivasi?email=') . $email . '&token=' . $token . '">disini</a> untuk aktivasi akun anda.<br>Note: <strong>Anda mempunyai waktu 1 hari untuk aktivasi akun.</strong>';
-		$this->email->setFrom('niagaonline111@gmail.com', 'Niaga Online');
+		$this->email->setFrom('niagaonline111@gmail.com', 'Niaga 11');
 		$this->email->setTo($email);
-		$this->email->setSubject('Niaga Online | Aktivasi Akun');
+		$this->email->setSubject('Niaga 11 | Aktivasi Akun');
 		$this->email->setMessage($pesan);
 
 		if($this->email->send())

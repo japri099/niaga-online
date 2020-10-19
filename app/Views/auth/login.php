@@ -1,6 +1,7 @@
 <?php $this->extend('layout/template') ?>
 
 <?php $this->section('konten') ?>
+<body class="hold-transition login-page">
 <div class="login-box">
   <div class="row">
     <div class="col">
@@ -35,7 +36,7 @@
         <div class="row">
           <!-- /.col -->
           <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+            <button type="submit" class="btn btn-primary btn-block">Login</button>
           </div>
           <!-- /.col -->
         </div>                      
@@ -48,7 +49,7 @@
       </div>
       <div class="row">
         <p class="ml-2 mb-0">
-          <a href="<?= base_url() ?>/auth/register" class="text-center">Register a new membership</a>
+          <a href="<?= base_url() ?>/auth/register" class="text-center">Belum memiliki akun?</a>
         </p>
       </div>
       

@@ -1,6 +1,7 @@
 <?php $this->extend('layout/template') ?>
 
 <?php $this->section('konten') ?>
+<body class="hold-transition login-page">
 <div class="register-box">
   <div class="register-logo">
     <a href="../../index2.html"><b>Niaga</b>11</a>
@@ -8,7 +9,7 @@
 
   <div class="card">
     <div class="card-body register-card-body">
-      <p class="login-box-msg">Sign Out</p>
+      <p class="login-box-msg">Sign Up</p>
 
       <form action="<?= base_url() ?>/auth/daftar" method="post">
         <?= $validation->hasError('nama') ? '<small class="text-danger">' . $validation->getError('nama') . '</small>' : '' ?>
@@ -62,7 +63,7 @@
   
       <div class="row">
         <p class="ml-4 mb-3">
-          <a href="<?= base_url() ?>/" class="text-center">I already have a membership</a>
+          <a href="<?= base_url() ?>/" class="text-center">Saya sudah registrasi</a>
         </p>
       </div>
       
